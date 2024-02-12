@@ -68,7 +68,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       },
       callback_after_calculation: function callback_after_calculation(value) {
         return value;
-      }
+      },
+      divisibleMinMax: true
     };
     var attributeMap = {
       min: 'min',
@@ -152,7 +153,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       }
       function _initSettings() {
         settings = $.extend({}, defaults, originalinput_data, _parseAttributes(), options);
-        if (parseFloat(settings.step) !== 1) {
+        if (parseFloat(settings.step) !== 1 && settings.divisibleMinMax) {
           var remainder;
 
           // Modify settings.max to be divisible by step

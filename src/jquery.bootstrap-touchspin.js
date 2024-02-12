@@ -56,7 +56,8 @@
       },
       callback_after_calculation: function (value) {
         return value;
-      }
+      },
+      divisibleMinMax: true,
     };
 
     var attributeMap = {
@@ -154,7 +155,7 @@
       function _initSettings() {
         settings = $.extend({}, defaults, originalinput_data, _parseAttributes(), options);
 
-        if (parseFloat(settings.step) !== 1) {
+        if (parseFloat(settings.step) !== 1 && settings.divisibleMinMax) {
           let remainder;
 
           // Modify settings.max to be divisible by step
